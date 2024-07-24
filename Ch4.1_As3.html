@@ -17,7 +17,11 @@ function loadXMLDoc()
 		console.log("readyState: "+this.readyState+" status: "+this.status);
 		if (this.readyState == 4 && this.status == 200) 
 		{
-			document.getElementById("demo").innerHTML = this.responseText;
+			var responseDiv = document.createElement("div");
+      			responseDiv.innerHTML = this.responseText;
+
+			var demoDiv = document.getElementById("demo");
+      			demoDiv.appendChild(responseDiv);
 		}
 	};
 	xhttp.open("GET", "xmlhttp_info.txt", true);
